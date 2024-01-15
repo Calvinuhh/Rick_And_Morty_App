@@ -1,0 +1,38 @@
+.contenedor {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 80px;
+}
+
+.contenedor_input {
+  display: flex;
+  width: 700px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  padding: 20px 30px;
+  gap: 40px;
+}
+
+.input {
+  font-size: 15px;
+  height: 30px;
+  width: 400px;
+}
+.button {
+  font-size: 20px;
+  color: white;
+  font-family: "Montserrat";
+  padding: 7px;
+  border-radius: 7px;
+  width: 100px;
+  background-color: blueviolet;
+}
+.button:hover {
+  transition: 0.4s ease;
+  color: black;
+  height: 50px;
+  width: 105px;
+  cursor: pointer;
+}
