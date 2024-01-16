@@ -10,7 +10,6 @@
   height: 100px;
   justify-content: center;
   align-items: center;
-  background-color: gray;
   padding: 20px 30px;
   gap: 40px;
 }
@@ -27,7 +26,7 @@
   padding: 7px;
   border-radius: 7px;
   width: 100px;
-  background-color: blueviolet;
+  background-color: blue;
 }
 .button:hover {
   transition: 0.4s ease;
