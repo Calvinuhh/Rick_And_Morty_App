@@ -10,8 +10,8 @@ export default function Card(props) {
       <h2 className={`${style.texto} ${style.otro}`}>{props.status}</h2>
       <h2 className={style.texto}>{props.species}</h2>
       <h2 className={style.texto}>{props.gender}</h2>
-      <h2 className={style.texto}>{props.origin}</h2>
-      <button className={style.button} onClick={() => onClose(props.id)}>
+      <h2 className={style.texto}>{props.origin.name}</h2>
+      <button className={style.button} onClick={() => props.onClose(props.id)}>
         X
       </button>
     </div>

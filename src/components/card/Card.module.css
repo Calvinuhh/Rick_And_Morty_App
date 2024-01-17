@@ -6,11 +6,13 @@
   font-family: var(--fuente-principal);
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   background-color: silver;
-  height: 500px;
+  height: 520px;
   border-radius: 20px;
   gap: 20px;
+  object-fit: cover;
 }
 
 .texto {
@@ -18,6 +20,8 @@
 }
 
 .imagen {
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
 }
 .button {
@@ -32,8 +36,8 @@
 .name {
   background-color: blueviolet;
   border: solid;
-  width: 280px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .divName {

@@ -1,8 +1,9 @@
 .contenedor {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 150px;
 }
 
