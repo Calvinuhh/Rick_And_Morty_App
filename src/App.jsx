@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/nav/Nav.jsx";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/about/About.jsx";
+import Detail from "./components/detail/Detail.jsx";
 
-const URL = "https://rickandmortyapi.com/api/character/";
+export const URL = "https://rickandmortyapi.com/api/character/";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -21,11 +24,22 @@ function App() {
     );
     setCharacters(personajesFiltrados);
   };
-  
+
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+
+      <Routes>
+        <Route path="/" element={<h1> Hola</h1>} />
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
