@@ -42,3 +42,19 @@
   color: black;
   font-weight: bold;
 }
+/* 
+.username {
+  border: solid red 2px;
+  border-radius: 20px;
+} */
+
+.password {
+  border: solid red 2px;
+  border-radius: 20px;
+}
+
+.warning {
+  border: solid red 2px;
+  border-radius: 20px;
+  font-family: "montserrat";
+}
