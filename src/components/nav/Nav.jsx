@@ -13,6 +13,9 @@ const Nav = ({ onSearch }) => {
         <Link className={style.ruta} to="/about">
           About
         </Link>
+        <Link className={style.ruta} to="/favorites">
+          Favorites
+        </Link>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/about/About.jsx";
 import Detail from "./components/detail/Detail.jsx";
 import Form from "./components/form/Form.jsx";
+import Favorites from "./components/favorites/Favorites.jsx";
 
 export const URL = "https://rickandmortyapi.com/api/character/";
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );
