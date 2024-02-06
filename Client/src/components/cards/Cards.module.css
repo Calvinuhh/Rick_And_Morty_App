@@ -1,0 +1,16 @@
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 150px;
+}
+
+@media (max-width: 1600px) {
+  .contenedor {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 130px;
+  }
+}
