@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/nav/Nav.jsx";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import About from "./components/about/About.jsx";
 import Detail from "./components/detail/Detail.jsx";
 import Form from "./components/form/Form.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
 
-export const URL = "https://rickandmortyapi.com/api/character/";
+export const URL = `http://localhost:3001/rickandmorty/character/`;
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
 
+  let { userId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 

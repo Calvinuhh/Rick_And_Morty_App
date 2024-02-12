@@ -24,18 +24,20 @@ const Favorites = (props) => {
 
   return (
     <>
-      <select onChange={handleOrder}>
-        <option value="a">Ascendente</option>
-        <option value="d">Descendente</option>
-      </select>
+      <div className={style.divFiltros}>
+        <select className={style.filtros} onChange={handleOrder}>
+          <option value="a">Ascendente</option>
+          <option value="d">Descendente</option>
+        </select>
 
-      <select onChange={handleFilter}>
-        <option value="All">All</option>
-        <option value="Male">Male</option>
-        <option value="Female"> Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">unknown</option>
-      </select>
+        <select className={style.filtros} onChange={handleFilter}>
+          <option value="All">All</option>
+          <option value="Male">Male</option>
+          <option value="Female"> Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">unknown</option>
+        </select>
+      </div>
 
       <div className={style.cont}>
         {myFavorites.map((item) => {

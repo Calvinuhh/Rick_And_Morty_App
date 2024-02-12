@@ -1,5 +1,5 @@
 const http = require("http");
-const characters = require("./utils/data.js");
+const {getCharById} = require("./controllers/getCharById");
 
 const PORT = 3001;
 
@@ -13,17 +13,9 @@ http
       const arrUrl = url.split("/");
       const id = arrUrl[arrUrl.length - 1];
 
-      const character = characters.find((character) => character.id === +id);
-
-      if (character) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.end(JSON.stringify(character));
-      }
-
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      return res.end("Character not found");
+      return getCharById(res, +id);
     }
-    res.end("Hello, World!");
+    res.end("Personaje no encontrado");
   })
   .listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
