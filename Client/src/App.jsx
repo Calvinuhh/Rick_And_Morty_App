@@ -1,49 +1,66 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/nav/Nav.jsx";
-import {
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/about/About.jsx";
 import Detail from "./components/detail/Detail.jsx";
 import Form from "./components/form/Form.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
 
 export const URL = `http://localhost:3001/rickandmorty/character/`;
+// const access = {
+//   email: "calvin.uhh@gmail.com",
+//   password: "clave1",
+//   isLoged: false,
+// };
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
 
-  let { userId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const EMAIL = "calvin.uhh@gmail.com";
-  const PASSWORD = "clave1";
+  const email = "calvin.uhh@gmail.com";
+  const password = "clave1";
 
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
 
-  function login(userData) {
-    if (userData.password === PASSWORD && userData.username === EMAIL) {
-      setAccess(true);
-      navigate("/home");
+  async function login(userData) {
+    try {
+      const { username, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+
+      const response = await axios(
+        URL + `?email=${username}&password=${password}`
+      );
+      console.log(response.data);
+      const { access } = response.data;
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      console.log("error", error);
     }
   }
 
-  const onSearch = (id) => {
-    fetch(`${URL}${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacters([...characters, data]);
-      });
+  const onSearch = async (id) => {
+    try {
+      const response = await fetch(`${URL}${id}`);
+      const data = await response.json();
+      setCharacters([...characters, data]);
+    } catch (error) {
+      console.log("error", error);
+    }
+
+    // fetch(`${URL}${id}`)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setCharacters([...characters, data]);
+    //   });
   };
 
   const onClose = (id) => {

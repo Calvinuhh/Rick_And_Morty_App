@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./Form.module.css";
 import validation from "../../utils/validation";
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -21,6 +21,12 @@ const Form = ({login}) => {
   //     [event.target.name]: event.target.value,
   //   });
   // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    login(userData);
+    console.log(userData);
+  };
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -43,7 +49,7 @@ const Form = ({login}) => {
       className={style.contenedor}
       // onSubmit={handleInputSubmit}
     >
-      <form className={style.form} onSubmit={() => login(userData)}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <img
           className={style.imagen}
           src="../../../public/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg"
