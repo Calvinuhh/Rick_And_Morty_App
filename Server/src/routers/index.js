@@ -1,5 +1,6 @@
-const express = require("express");
-const router = express.Router();
+const { Router } = require("express");
+const router = Router();
+// const router = express.Router();
 
 const getCharById = require("../controllers/getCharById");
 const login = require("../controllers/login");
