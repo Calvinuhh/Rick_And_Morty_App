@@ -9,11 +9,6 @@ import Form from "./components/form/Form.jsx";
 import Favorites from "./components/favorites/Favorites.jsx";
 
 export const URL = `http://localhost:3001/rickandmorty/character/`;
-// const access = {
-//   email: "calvin.uhh@gmail.com",
-//   password: "clave1",
-//   isLoged: false,
-// };
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -22,9 +17,6 @@ function App() {
 
   const location = useLocation();
   const navigate = useNavigate();
-
-  const email = "calvin.uhh@gmail.com";
-  const password = "clave1";
 
   useEffect(() => {
     !access && navigate("/");
@@ -38,7 +30,6 @@ function App() {
       const response = await axios(
         URL + `?email=${username}&password=${password}`
       );
-      console.log(response.data);
       const { access } = response.data;
       setAccess(access);
       access && navigate("/home");

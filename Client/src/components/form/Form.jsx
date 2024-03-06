@@ -25,7 +25,6 @@ const Form = ({ login }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
-    console.log(userData);
   };
 
   const handleChange = (event) => {

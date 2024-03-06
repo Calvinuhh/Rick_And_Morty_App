@@ -2,10 +2,11 @@ import React from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import Card from "../card/Card.jsx";
 import style from "./Favorites.module.css";
-import { filterCards, orderCards } from "../../redux/actions.js";
+import { filterCards, orderCards, removeFav } from "../../redux/actions.js";
 import { useState } from "react";
 
 const Favorites = (props) => {
+
   const [aux, setAux] = useState(false);
 
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -40,7 +41,7 @@ const Favorites = (props) => {
       </div>
 
       <div className={style.cont}>
-        {myFavorites.map((item) => {
+        {props.myFavorites.map((item) => {
           return (
             <div className={style.contenedor} key={item.id}>
               <Card
@@ -66,4 +67,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { filterCards, orderCards })(Favorites);
+export default connect(mapStateToProps, { filterCards, orderCards, removeFav })(
+  Favorites
+);
