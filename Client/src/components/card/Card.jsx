@@ -18,6 +18,7 @@ const Card = (props) => {
         name: props.name,
         status: props.status,
         gender: props.gender,
+        origin: props.origin?.name,
         species: props.species,
         image: props.image,
       });

@@ -41,6 +41,7 @@ server.use((req, res, next) => {
 server.use(express.json());
 server.use("/rickandmorty", router);
 
+
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto: http://localhost:${PORT}`);

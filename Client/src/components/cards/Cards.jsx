@@ -3,7 +3,7 @@ import style from "./Cards.module.css";
 
 export default function Cards({ characters, onClose }) {
   return (
-    <div className={style.contenedor} key={characters.id}> 
+    <div className={style.contenedor} key={characters.id}>
       {characters.map((characters) => (
         <Card
           key={characters.id}
@@ -12,7 +12,7 @@ export default function Cards({ characters, onClose }) {
           status={characters.status}
           species={characters.species}
           gender={characters.gender}
-          origin={characters.origin.name}
+          origin={characters.origin?.name}
           image={characters.image}
           onClose={onClose}
         />
